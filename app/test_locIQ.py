@@ -1,8 +1,12 @@
 import requests
-
+import time
+import logging
+from functools import wraps
+from timed import timed
 
 LOCATIONIQ_API_KEY = 'pk.bc7ccb19ed88617f050998f1b303b2a1'
 
+@timed
 def get_geocode(address):
     url = f'https://us1.locationiq.com/v1/search.php?key={LOCATIONIQ_API_KEY}&q={address}&format=json'
     response = requests.get(url)
