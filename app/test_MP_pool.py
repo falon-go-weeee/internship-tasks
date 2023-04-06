@@ -2,6 +2,7 @@ import multiprocessing
 from timed import timed
 
 # Define a function to be executed by each process
+@timed
 def worker(item):
     # Process the item
     result = item * 2

@@ -10,10 +10,10 @@ def timed(func):
     
     @wraps(func)
     def wrapper(*args, **kwargs):
-        start = time.time()
+        start = time.time_ns()
         result = func(*args, **kwargs)
-        end = time.time()
-        logger.debug("{} ran in {}s".format(func.__name__, round(end - start, 2)))
+        end = time.time_ns()
+        logger.debug("{} ran in {}ns".format(func.__name__, round(end - start, 2)))
         return result
 
     return wrapper
